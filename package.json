@@ -21,6 +21,7 @@
     "prettier": "prettier --ignore-unknown --write ."
   },
   "dependencies": {
+    "@vercel/analytics": "^1.5.0",
     "framer-motion": "^12.9.0",
     "next": "15.3.1",
     "react": "^19.0.0",
