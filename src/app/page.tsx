@@ -16,14 +16,14 @@ const reduxLibraries: ReduxLibrary[] = [
     name: 'Redux',
     description:
       'A predictable state container for JavaScript apps. It helps you write applications that behave consistently, run in different environments, and are easy to test.',
-    color: 'bg-purple-600 hover:bg-purple-700',
+    color: 'bg-sky-400 hover:bg-sky-500',
     url: 'https://redux.js.org/',
   },
   {
     name: 'React Redux',
     description:
       'The official React binding for Redux. It lets your React components read data from a Redux store, and dispatch actions to the store to update data.',
-    color: 'bg-purple-500 hover:bg-purple-600',
+    color: 'bg-indigo-800 hover:bg-indigo-900',
     url: 'https://react-redux.js.org/',
   },
   {
@@ -163,8 +163,8 @@ const tooltipVariants = {
 
 // Color filters for each Redux library logo
 const logoFilters = {
-  Redux: 'hue-rotate(0deg) brightness(1.05)',
-  'React Redux': 'hue-rotate(15deg) brightness(1.1)',
+  Redux: 'hue-rotate(195deg) brightness(1.1) saturate(1.2)',
+  'React Redux': 'hue-rotate(225deg) brightness(1.05) saturate(0.9)',
   'Redux Toolkit': 'hue-rotate(30deg) brightness(1.15)',
 }
 
@@ -172,38 +172,38 @@ export default function Home() {
   const titleText = 'Redux Front Page'
 
   return (
-    <div className="relative min-h-screen overflow-hidden bg-gradient-to-b from-pink-100 via-purple-100 to-indigo-100 dark:from-pink-950 dark:via-purple-950 dark:to-indigo-950">
+    <div className="relative min-h-screen overflow-hidden bg-gradient-to-b from-sky-50 via-indigo-50 to-purple-50">
       {/* Animated background elements */}
       <div className="absolute inset-0 z-0">
         <motion.div
-          className="absolute top-20 left-20 w-32 h-32 rounded-full bg-pink-300/20 dark:bg-pink-800/20 blur-sm"
+          className="absolute top-20 left-20 w-32 h-32 rounded-full bg-sky-300/20 blur-sm"
           variants={floatingAnimation}
           initial="initial"
           animate="animate"
           transition={{ delay: 0 }}
         />
         <motion.div
-          className="absolute bottom-40 right-20 w-48 h-48 rounded-full bg-purple-300/20 dark:bg-purple-800/20 blur-sm"
+          className="absolute bottom-40 right-20 w-48 h-48 rounded-full bg-indigo-300/20 blur-sm"
           variants={floatingAnimation}
           initial="initial"
           animate="animate"
           transition={{ delay: 1 }}
         />
         <motion.div
-          className="absolute top-1/2 left-1/3 w-40 h-40 rounded-full bg-indigo-300/20 dark:bg-indigo-800/20 blur-sm"
+          className="absolute top-1/2 left-1/3 w-40 h-40 rounded-full bg-purple-300/20 blur-sm"
           variants={floatingAnimation}
           initial="initial"
           animate="animate"
           transition={{ delay: 2 }}
         />
-        <div className="absolute top-0 left-0 right-0 h-40 bg-gradient-to-b from-pink-200 to-transparent dark:from-pink-900 dark:to-transparent"></div>
-        <div className="absolute bottom-0 left-0 right-0 h-40 bg-gradient-to-t from-indigo-200 to-transparent dark:from-indigo-900 dark:to-transparent"></div>
+        <div className="absolute top-0 left-0 right-0 h-40 bg-gradient-to-b from-sky-100 to-transparent"></div>
+        <div className="absolute bottom-0 left-0 right-0 h-40 bg-gradient-to-t from-purple-100 to-transparent"></div>
       </div>
 
       {/* Project Framework Heading */}
       <div className="relative z-10 pt-8 text-center">
         <motion.h1
-          className="text-xl text-gray-500 uppercase tracking-wide dark:text-gray-400"
+          className="text-xl text-indigo-500 uppercase tracking-wide"
           initial={{ opacity: 0, y: -20 }}
           animate={{ opacity: 1, y: 0 }}
           transition={{ duration: 0.8, ease: 'easeOut' }}
@@ -217,7 +217,7 @@ export default function Home() {
           className="mt-6 mb-12"
         >
           <motion.h2
-            className="text-4xl md:text-5xl font-bold text-purple-700 dark:text-purple-300 flex justify-center flex-wrap perspective"
+            className="text-4xl md:text-5xl font-bold text-indigo-700 flex justify-center flex-wrap perspective"
             variants={titleContainer}
             initial="hidden"
             animate="visible"
@@ -233,7 +233,7 @@ export default function Home() {
             ))}
           </motion.h2>
           <motion.p
-            className="mt-2 text-gray-600 dark:text-gray-300 max-w-lg mx-auto text-sm md:text-base"
+            className="mt-2 text-gray-600 max-w-lg mx-auto text-sm md:text-base"
             initial={{ opacity: 0, y: 20 }}
             animate={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.8, delay: 1.2 }}
@@ -246,14 +246,14 @@ export default function Home() {
       {/* Main Content */}
       <main className="relative z-10 flex flex-col items-center justify-center min-h-[70vh] px-4">
         <motion.div
-          className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-8 p-4 sm:p-6 md:p-8 bg-white/80 dark:bg-gray-900/80 rounded-xl shadow-lg backdrop-blur-sm w-full max-w-4xl border-2 border-purple-300/50 dark:border-purple-700/50 relative overflow-hidden"
+          className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-8 p-4 sm:p-6 md:p-8 bg-white/80 rounded-xl shadow-lg backdrop-blur-sm w-full max-w-4xl border-2 border-purple-300/50 relative overflow-hidden"
           variants={cardContainerVariants}
           initial="hidden"
           animate="visible"
           transition={{ duration: 0.5, delay: 0.8 }}
         >
           {/* Gradient border effect */}
-          <div className="absolute inset-0 -z-10 bg-gradient-to-r from-purple-400 via-pink-400 to-indigo-400 dark:from-purple-700 dark:via-pink-700 dark:to-indigo-700 opacity-20 blur-sm"></div>
+          <div className="absolute inset-0 -z-10 bg-gradient-to-r from-sky-400 via-indigo-400 to-purple-400 opacity-20 blur-sm"></div>
           {reduxLibraries.map((library, index) => (
             <motion.div
               key={library.name}
@@ -308,18 +308,18 @@ export default function Home() {
                   whileHover="visible"
                 >
                   <motion.div
-                    className="bg-white dark:bg-gray-800 p-4 rounded-lg shadow-lg mx-auto"
+                    className="bg-white p-4 rounded-lg shadow-lg mx-auto"
                     initial={{ scale: 0.9 }}
                     whileHover={{ scale: 1 }}
                   >
-                    <h3 className="font-bold text-gray-900 dark:text-white mb-2">
+                    <h3 className="font-bold text-gray-900 mb-2">
                       {library.name}
                     </h3>
-                    <p className="text-sm text-gray-700 dark:text-gray-300">
+                    <p className="text-sm text-gray-700">
                       {library.description}
                     </p>
                   </motion.div>
-                  <div className="w-4 h-4 bg-white dark:bg-gray-800 transform rotate-45 absolute -bottom-1 left-1/2 -ml-2"></div>
+                  <div className="w-4 h-4 bg-white transform rotate-45 absolute -bottom-1 left-1/2 -ml-2"></div>
                 </motion.div>
               </AnimatePresence>
             </motion.div>
@@ -330,7 +330,7 @@ export default function Home() {
       {/* Footer */}
       <footer className="relative z-10 flex flex-col items-center justify-center py-6 mt-auto">
         <motion.div
-          className="text-center text-gray-600 dark:text-gray-400 text-sm"
+          className="text-center text-gray-600 text-sm"
           initial={{ opacity: 0 }}
           animate={{ opacity: 1 }}
           transition={{ delay: 1.5 }}
@@ -347,7 +347,7 @@ export default function Home() {
             href="https://redux.js.org"
             target="_blank"
             rel="noopener noreferrer"
-            className="text-purple-600 hover:text-purple-800 dark:text-purple-400 dark:hover:text-purple-300 transition-all duration-300 hover:underline hover:translate-y-[-2px] inline-block"
+            className="text-indigo-600 hover:text-indigo-800 transition-all duration-300 hover:underline hover:translate-y-[-2px] inline-block"
           >
             Official Documentation
           </a>
@@ -355,7 +355,7 @@ export default function Home() {
             href="https://github.com/reduxjs/redux"
             target="_blank"
             rel="noopener noreferrer"
-            className="text-purple-600 hover:text-purple-800 dark:text-purple-400 dark:hover:text-purple-300 transition-all duration-300 hover:underline hover:translate-y-[-2px] inline-block"
+            className="text-indigo-600 hover:text-indigo-800 transition-all duration-300 hover:underline hover:translate-y-[-2px] inline-block"
           >
             GitHub
           </a>
