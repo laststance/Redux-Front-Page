@@ -1,0 +1,49 @@
+---
+description: 
+globs: 
+alwaysApply: false
+---
+# Technology Stack
+
+## Core Technologies
+- React 19
+- Next.js 15 (App Router)
+- TypeScript 5
+- Redux Toolkit & RTK Query
+- TailwindCSS & DaisyUI
+
+## Development Tools
+- ESLint 9
+- Prettier 3
+- Husky 9
+- lint-staged 15
+
+## Testing Stack
+- Vitest
+- Playwright
+
+## Node Version
+- Node.js 22.x (Volta managed)
+
+## Package Manager
+- pnpm (preferred)
+
+## Development Commands
+```bash
+# Install dependencies
+pnpm install
+
+# Start development server with Turbopack
+pnpm dev
+
+# Build for production
+pnpm build
+
+# Run linting
+pnpm lint
+
+# Fix linting issues
+pnpm lint:fix
+
+# Format code
+pnpm prettier

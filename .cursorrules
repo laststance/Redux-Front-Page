@@ -1,0 +1,81 @@
+# Redux Front Page Project Rules
+
+## Project Overview
+This is a Redux Front Page project that demonstrates modern Redux best practices using Redux Toolkit and RTK Query.
+
+## Technology Stack
+- React
+- Redux Toolkit & RTK Query
+- TypeScript
+- TailwindCSS & DaisyUI
+- Vitest & Playwright for testing
+
+## Code Style Guidelines
+
+### Language
+- Lang: en
+- Comments: English
+- Test Names: English
+- Documentation: English
+
+### TypeScript
+- Strict mode enabled
+- Use explicit type annotations for function parameters and returns
+- Prefer interfaces over type aliases for object types
+- Use type inference when types are obvious
+
+### React & Redux
+- Use functional components with hooks
+- Follow Redux Toolkit best practices
+- Implement RTK Query for API calls
+- Use proper state slices organization
+- Implement proper TypeScript types for state and actions
+
+### Testing
+- Write unit tests for components and Redux logic
+- Write E2E tests for critical user flows
+- Follow AAA (Arrange-Act-Assert) pattern
+- Use meaningful test descriptions
+- Include both positive and negative test cases
+
+### File Structure
+- Components in `/components`
+- Redux logic in `/redux`
+- Tests alongside the files they test
+- Shared types in `/types`
+- Utilities in `/utils`
+
+### Naming Conventions
+- Components: PascalCase
+- Files: PascalCase for components, camelCase for others
+- Functions: camelCase
+- Constants: UPPER_SNAKE_CASE
+- Interfaces: Prefix with 'I'
+- Types: PascalCase
+
+### Import Order
+1. React/Redux imports
+2. Third-party libraries
+3. Local components
+4. Types
+5. Utilities
+6. Styles
+
+### Component Structure
+1. Imports
+2. Interface/Type definitions
+3. Component definition
+4. Exports
+
+### Git Commits
+- Use conventional commit messages
+- Keep commits focused and atomic
+- Include relevant ticket numbers
+
+## Best Practices
+- Implement proper error handling
+- Use proper TypeScript types
+- Follow React performance best practices
+- Implement proper loading states
+- Use proper form validation
+- Follow accessibility guidelines 

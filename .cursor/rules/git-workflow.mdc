@@ -1,0 +1,40 @@
+---
+description: 
+globs: 
+alwaysApply: false
+---
+# Git Workflow
+
+## Commit Messages
+Follow conventional commit messages:
+
+- `feat:` New features
+- `fix:` Bug fixes
+- `docs:` Documentation changes
+- `style:` Code style changes (formatting, etc)
+- `refactor:` Code refactoring
+- `test:` Adding or modifying tests
+- `chore:` Maintenance tasks
+
+Example: `feat: add todo list filtering`
+
+## Branch Naming
+- Feature branches: `feature/description`
+- Bug fixes: `fix/description`
+- Documentation: `docs/description`
+
+## Pull Requests
+1. Keep changes focused and atomic
+2. Include relevant ticket numbers
+3. Provide clear description of changes
+4. Update documentation if needed
+5. Ensure all tests pass
+6. Request review from appropriate team members
+
+## Code Review
+- Review for functionality
+- Check code style compliance
+- Verify test coverage
+- Ensure documentation is updated
+- Look for potential performance issues
+- Validate accessibility considerations
