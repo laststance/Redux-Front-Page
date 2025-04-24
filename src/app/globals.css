@@ -25,4 +25,23 @@ body {
     backdrop-filter: blur(8px);
     -webkit-backdrop-filter: blur(8px);
   }
+  
+  .perspective {
+    perspective: 1000px;
+    transform-style: preserve-3d;
+  }
+  
+  /* Redux logo animation enhancement */
+  @keyframes pulse-glow {
+    0%, 100% {
+      filter: drop-shadow(0 0 0.5rem rgba(139, 92, 246, 0.3));
+    }
+    50% {
+      filter: drop-shadow(0 0 1rem rgba(139, 92, 246, 0.6));
+    }
+  }
+  
+  .redux-logo-glow {
+    animation: pulse-glow 3s infinite;
+  }
 }
