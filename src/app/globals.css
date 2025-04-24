@@ -37,4 +37,32 @@ body {
   .redux-logo-glow {
     animation: pulse-glow 3s infinite;
   }
+
+  /* Better hover handling */
+  .group {
+    position: relative;
+  }
+
+  .tooltip-container {
+    position: absolute;
+    z-index: 100;
+    pointer-events: none;
+    top: auto;
+    width: 100%;
+    max-width: 24rem;
+    transform: translateY(-20px);
+    transition: opacity 0.2s ease-out, transform 0.3s ease-out;
+  }
+
+  .group:hover .tooltip-container {
+    opacity: 1 !important;
+    transform: translateY(0);
+  }
+
+  /* Ensure container has proper overflow for tooltips */
+  .card-container {
+    overflow: visible !important;
+    position: relative;
+    z-index: 10;
+  }
 }

@@ -115,6 +115,7 @@ const cardVariants = {
   },
   hover: {
     scale: 1.05,
+    zIndex: 40,
     boxShadow: '0px 10px 25px rgba(0, 0, 0, 0.15)',
     transition: {
       type: 'spring',
@@ -258,7 +259,7 @@ export default function Home() {
       {/* Main Content */}
       <main className="relative z-10 flex flex-col items-center justify-center min-h-[70vh] px-4">
         <motion.div
-          className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-8 p-4 sm:p-6 md:p-8 bg-white/80 rounded-xl shadow-lg backdrop-blur-sm w-full max-w-4xl border-2 border-purple-300/50 relative overflow-hidden"
+          className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-8 p-4 sm:p-6 md:p-8 bg-white/80 rounded-xl shadow-lg backdrop-blur-sm w-full max-w-4xl border-2 border-purple-300/50 relative card-container"
           variants={cardContainerVariants}
           initial="hidden"
           animate="visible"
@@ -269,7 +270,7 @@ export default function Home() {
           {reduxLibraries.map((library, index) => (
             <motion.div
               key={library.name}
-              className="group relative flex flex-col items-center p-4"
+              className="group relative flex flex-col items-center p-4 isolate"
               variants={cardVariants}
               whileHover="hover"
               initial="hidden"
@@ -280,7 +281,7 @@ export default function Home() {
                 href={library.url}
                 target="_blank"
                 rel="noopener noreferrer"
-                className="flex flex-col items-center no-underline"
+                className="flex flex-col items-center no-underline relative"
               >
                 {/* Logo */}
                 <motion.div
@@ -317,8 +318,8 @@ export default function Home() {
                 </motion.div>
               </a>
 
-              {/* Tooltip */}
-              <div className="absolute opacity-0 group-hover:opacity-100 bottom-full mb-4 z-30 w-full max-w-md pointer-events-none transition-all duration-300 ease-out">
+              {/* Tooltip with absolute positioning */}
+              <div className="tooltip-container opacity-0 bottom-[120%]">
                 <div
                   className={`p-6 rounded-xl shadow-xl mx-auto backdrop-blur-sm ${
                     library.name === 'Redux'
