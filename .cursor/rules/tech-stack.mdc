@@ -9,8 +9,7 @@ alwaysApply: false
 - React 19
 - Next.js 15 (App Router)
 - TypeScript 5
-- Redux Toolkit & RTK Query
-- TailwindCSS & DaisyUI
+- TailwindCSS 4
 
 ## Development Tools
 - ESLint 9
