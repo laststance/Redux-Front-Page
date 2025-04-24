@@ -14,21 +14,21 @@ const reduxLibraries: ReduxLibrary[] = [
   {
     name: 'Redux',
     description:
-      'A predictable state container for JavaScript apps. It helps you write applications that behave consistently, run in different environments, and are easy to test.',
+      "Redux mainly provides the createStore() API and offers state management functionality using plain JavaScript objects. It's a library that operates independently from the DOM or any UI framework.",
     color: 'bg-sky-400 hover:bg-sky-500',
     url: 'https://redux.js.org/',
   },
   {
     name: 'React Redux',
     description:
-      'The official React binding for Redux. It lets your React components read data from a Redux store, and dispatch actions to the store to update data.',
+      'In addition to Redux, it provides React bindings like Provider and hooks. Before the Toolkit came along, this library was the de facto standard.',
     color: 'bg-indigo-800 hover:bg-indigo-900',
     url: 'https://react-redux.js.org/',
   },
   {
     name: 'Redux Toolkit',
     description:
-      'The official, opinionated, batteries-included toolset for efficient Redux development. It includes utilities to simplify common Redux use cases.',
+      "Nowadays, if you're using Redux in a React app, this is your best bet. It lets you manage state with less and more organized code compared to using React Redux directly.",
     color: 'bg-purple-400 hover:bg-purple-500',
     url: 'https://redux-toolkit.js.org/',
   },
@@ -149,38 +149,6 @@ const logoFilters = {
   'Redux Toolkit': 'hue-rotate(30deg) brightness(1.15)',
 }
 
-// Enhanced tooltip content with more detailed descriptions
-const getEnhancedTooltipContent = (name: string) => {
-  switch (name) {
-    case 'Redux':
-      return {
-        description:
-          'A predictable state container for JavaScript apps. It helps you write applications that behave consistently, run in different environments, and are easy to test.',
-        details:
-          "Redux maintains the state of an entire application in a single immutable state tree, which can't be changed directly. When something changes, a new object is created (using actions and reducers).",
-      }
-    case 'React Redux':
-      return {
-        description:
-          'The official React binding for Redux. It lets your React components read data from a Redux store, and dispatch actions to the store to update data.',
-        details:
-          'React Redux provides APIs that allow your components to dispatch actions and subscribe to data from the Redux store with simple higher-order components or hooks.',
-      }
-    case 'Redux Toolkit':
-      return {
-        description:
-          'The official, opinionated, batteries-included toolset for efficient Redux development. It includes utilities to simplify common Redux use cases.',
-        details:
-          'Redux Toolkit includes utilities to simplify common use cases like store setup, creating reducers, immutable update logic, and even creating entire "slices" of state at once.',
-      }
-    default:
-      return {
-        description: '',
-        details: '',
-      }
-  }
-}
-
 export default function Home() {
   const titleText = 'Redux Front Page'
 
@@ -213,7 +181,7 @@ export default function Home() {
         <div className="absolute bottom-0 left-0 right-0 h-40 bg-gradient-to-t from-purple-100 to-transparent"></div>
       </div>
 
-      {/* Project Framework Heading */}
+      {/* Heading */}
       <div className="relative z-10 pt-8 text-center">
         <motion.h1
           className="text-xl text-indigo-500 uppercase tracking-wide"
@@ -221,7 +189,7 @@ export default function Home() {
           animate={{ opacity: 1, y: 0 }}
           transition={{ duration: 0.8, ease: 'easeOut' }}
         >
-          PROJECT FRAMEWORK
+          A State Management Library
         </motion.h1>
         <motion.div
           initial={{ opacity: 0 }}
@@ -340,11 +308,8 @@ export default function Home() {
                   >
                     {library.name}
                   </h3>
-                  <p className="text-lg text-gray-700 mb-3">
-                    {getEnhancedTooltipContent(library.name).description}
-                  </p>
-                  <p className="text-base text-gray-600 italic">
-                    {getEnhancedTooltipContent(library.name).details}
+                  <p className="text-lg text-gray-700 mb-3 text-balance">
+                    {library.description}
                   </p>
                 </div>
                 <div
@@ -370,29 +335,9 @@ export default function Home() {
           animate={{ opacity: 1 }}
           transition={{ delay: 1.5 }}
         >
-          © 2024 Redux Front Page
-        </motion.div>
-        <motion.div
-          className="mt-4 flex space-x-4"
-          initial={{ opacity: 0, y: 10 }}
-          animate={{ opacity: 1, y: 0 }}
-          transition={{ delay: 1.7 }}
-        >
-          <a
-            href="https://redux.js.org"
-            target="_blank"
-            rel="noopener noreferrer"
-            className="text-indigo-600 hover:text-indigo-800 transition-all duration-300 hover:underline hover:translate-y-[-2px] inline-block"
-          >
-            Official Documentation
-          </a>
-          <a
-            href="https://github.com/reduxjs/redux"
-            target="_blank"
-            rel="noopener noreferrer"
-            className="text-indigo-600 hover:text-indigo-800 transition-all duration-300 hover:underline hover:translate-y-[-2px] inline-block"
-          >
-            GitHub
+          © 2025{' '}
+          <a href="https://laststance.io" target="_blank">
+            laststance.io
           </a>
         </motion.div>
       </footer>
