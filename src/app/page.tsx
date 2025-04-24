@@ -1,8 +1,7 @@
 'use client'
 
-import { motion, AnimatePresence } from 'framer-motion'
+import { motion } from 'framer-motion'
 import Image from 'next/image'
-import Link from 'next/link'
 
 interface ReduxLibrary {
   name: string
@@ -142,30 +141,43 @@ const logoVariants = {
   },
 }
 
-// Tooltip animation
-const tooltipVariants = {
-  hidden: {
-    opacity: 0,
-    y: 20,
-    scale: 0.8,
-  },
-  visible: {
-    opacity: 1,
-    y: 0,
-    scale: 1,
-    transition: {
-      type: 'spring',
-      damping: 20,
-      stiffness: 300,
-    },
-  },
-}
-
 // Color filters for each Redux library logo
 const logoFilters = {
   Redux: 'hue-rotate(195deg) brightness(1.1) saturate(1.2)',
   'React Redux': 'hue-rotate(225deg) brightness(1.05) saturate(0.9)',
   'Redux Toolkit': 'hue-rotate(30deg) brightness(1.15)',
+}
+
+// Enhanced tooltip content with more detailed descriptions
+const getEnhancedTooltipContent = (name: string) => {
+  switch (name) {
+    case 'Redux':
+      return {
+        description:
+          'A predictable state container for JavaScript apps. It helps you write applications that behave consistently, run in different environments, and are easy to test.',
+        details:
+          "Redux maintains the state of an entire application in a single immutable state tree, which can't be changed directly. When something changes, a new object is created (using actions and reducers).",
+      }
+    case 'React Redux':
+      return {
+        description:
+          'The official React binding for Redux. It lets your React components read data from a Redux store, and dispatch actions to the store to update data.',
+        details:
+          'React Redux provides APIs that allow your components to dispatch actions and subscribe to data from the Redux store with simple higher-order components or hooks.',
+      }
+    case 'Redux Toolkit':
+      return {
+        description:
+          'The official, opinionated, batteries-included toolset for efficient Redux development. It includes utilities to simplify common Redux use cases.',
+        details:
+          'Redux Toolkit includes utilities to simplify common use cases like store setup, creating reducers, immutable update logic, and even creating entire "slices" of state at once.',
+      }
+    default:
+      return {
+        description: '',
+        details: '',
+      }
+  }
 }
 
 export default function Home() {
@@ -257,18 +269,22 @@ export default function Home() {
           {reduxLibraries.map((library, index) => (
             <motion.div
               key={library.name}
-              className="group relative flex flex-col items-center"
+              className="group relative flex flex-col items-center p-4"
               variants={cardVariants}
               whileHover="hover"
+              initial="hidden"
+              animate="visible"
             >
-              <Link
+              {/* Container with link */}
+              <a
                 href={library.url}
                 target="_blank"
                 rel="noopener noreferrer"
-                className="block"
+                className="flex flex-col items-center no-underline"
               >
+                {/* Logo */}
                 <motion.div
-                  className={`w-24 h-24 md:w-32 md:h-32 rounded-full ${library.color} flex items-center justify-center shadow-md`}
+                  className={`w-24 h-24 md:w-32 md:h-32 rounded-full ${library.color} flex items-center justify-center shadow-md relative z-10`}
                   whileHover={{ scale: 1.05 }}
                 >
                   <motion.div
@@ -289,6 +305,8 @@ export default function Home() {
                     />
                   </motion.div>
                 </motion.div>
+
+                {/* Library name */}
                 <motion.div
                   className="mt-4 text-center font-medium text-lg"
                   initial={{ opacity: 0 }}
@@ -297,31 +315,47 @@ export default function Home() {
                 >
                   {library.name}
                 </motion.div>
-              </Link>
+              </a>
 
               {/* Tooltip */}
-              <AnimatePresence>
-                <motion.div
-                  className="absolute pointer-events-none opacity-0 group-hover:opacity-100 bottom-full mb-2 z-20 w-full max-w-xs"
-                  variants={tooltipVariants}
-                  initial="hidden"
-                  whileHover="visible"
+              <div className="absolute opacity-0 group-hover:opacity-100 bottom-full mb-4 z-30 w-full max-w-md pointer-events-none transition-all duration-300 ease-out">
+                <div
+                  className={`p-6 rounded-xl shadow-xl mx-auto backdrop-blur-sm ${
+                    library.name === 'Redux'
+                      ? 'bg-sky-100/90 border border-sky-200'
+                      : library.name === 'React Redux'
+                        ? 'bg-indigo-100/90 border border-indigo-200'
+                        : 'bg-purple-100/90 border border-purple-200'
+                  }`}
                 >
-                  <motion.div
-                    className="bg-white p-4 rounded-lg shadow-lg mx-auto"
-                    initial={{ scale: 0.9 }}
-                    whileHover={{ scale: 1 }}
+                  <h3
+                    className={`font-bold mb-3 text-xl ${
+                      library.name === 'Redux'
+                        ? 'text-sky-900'
+                        : library.name === 'React Redux'
+                          ? 'text-indigo-900'
+                          : 'text-purple-900'
+                    }`}
                   >
-                    <h3 className="font-bold text-gray-900 mb-2">
-                      {library.name}
-                    </h3>
-                    <p className="text-sm text-gray-700">
-                      {library.description}
-                    </p>
-                  </motion.div>
-                  <div className="w-4 h-4 bg-white transform rotate-45 absolute -bottom-1 left-1/2 -ml-2"></div>
-                </motion.div>
-              </AnimatePresence>
+                    {library.name}
+                  </h3>
+                  <p className="text-lg text-gray-700 mb-3">
+                    {getEnhancedTooltipContent(library.name).description}
+                  </p>
+                  <p className="text-base text-gray-600 italic">
+                    {getEnhancedTooltipContent(library.name).details}
+                  </p>
+                </div>
+                <div
+                  className={`w-5 h-5 transform rotate-45 absolute -bottom-2 left-1/2 -ml-2 ${
+                    library.name === 'Redux'
+                      ? 'bg-sky-100/90 border-b border-r border-sky-200'
+                      : library.name === 'React Redux'
+                        ? 'bg-indigo-100/90 border-b border-r border-indigo-200'
+                        : 'bg-purple-100/90 border-b border-r border-purple-200'
+                  }`}
+                ></div>
+              </div>
             </motion.div>
           ))}
         </motion.div>
