@@ -3,6 +3,7 @@
 import { motion } from 'framer-motion'
 import Image from 'next/image'
 
+import GitHubIcon from './GitHubIcon'
 import {
   floatingAnimation,
   titleContainer,
@@ -19,6 +20,16 @@ export default function Home() {
 
   return (
     <div className="relative min-h-screen overflow-hidden bg-gradient-to-b from-sky-50 via-indigo-50 to-purple-50">
+      {/* GitHub Link */}
+      <a
+        href="https://github.com/laststance/Redux-Front-Page"
+        target="_blank"
+        rel="noopener noreferrer"
+        className="absolute top-4 right-4 z-50"
+      >
+        <GitHubIcon width={32} height={32} className="text-gray-700" />
+      </a>
+
       {/* Animated background elements */}
       <div className="absolute inset-0 z-0">
         <motion.div
