@@ -35,11 +35,6 @@ export const floatingAnimation = {
   animate: {
     y: [0, -15, 0],
     opacity: [0.4, 0.6, 0.4],
-    transition: {
-      duration: 8,
-      repeat: Infinity,
-      ease: 'easeInOut',
-    },
   },
 }
 
@@ -61,22 +56,18 @@ export const titleCharacter = {
     opacity: 0,
     y: 20,
     rotateX: 40,
-    transition: {
-      type: 'spring',
-      damping: 12,
-      stiffness: 100,
-    },
   },
   visible: {
     opacity: 1,
     y: 0,
     rotateX: 0,
-    transition: {
-      type: 'spring',
-      damping: 12,
-      stiffness: 100,
-    },
   },
+}
+
+export const titleCharacterTransition = {
+  type: 'spring' as const,
+  damping: 12,
+  stiffness: 100,
 }
 
 // Card container animation
@@ -102,22 +93,24 @@ export const cardVariants = {
     y: 0,
     opacity: 1,
     scale: 1,
-    transition: {
-      type: 'spring',
-      damping: 15,
-      stiffness: 100,
-    },
   },
   hover: {
     scale: 1.05,
     zIndex: 40,
     boxShadow: '0px 10px 25px rgba(0, 0, 0, 0.15)',
-    transition: {
-      type: 'spring',
-      damping: 10,
-      stiffness: 250,
-    },
   },
+}
+
+export const cardTransition = {
+  type: 'spring' as const,
+  damping: 15,
+  stiffness: 100,
+}
+
+export const cardHoverTransition = {
+  type: 'spring' as const,
+  damping: 10,
+  stiffness: 250,
 }
 
 // Logo animation
@@ -129,12 +122,13 @@ export const logoVariants = {
   hover: {
     scale: [1, 1.2, 1.15],
     rotate: [0, 10, -10, 0],
-    transition: {
-      duration: 1.5,
-      repeat: Infinity,
-      repeatType: 'loop' as const,
-    },
   },
+}
+
+export const logoHoverTransition = {
+  duration: 1.5,
+  repeat: Infinity,
+  repeatType: 'loop' as const,
 }
 
 // Color filters for each Redux library logo

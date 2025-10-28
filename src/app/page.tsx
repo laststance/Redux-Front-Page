@@ -8,9 +8,12 @@ import {
   floatingAnimation,
   titleContainer,
   titleCharacter,
+  titleCharacterTransition,
   cardContainerVariants,
   cardVariants,
+  cardTransition,
   logoVariants,
+  logoHoverTransition,
   logoFilters,
   reduxLibraries,
 } from './variables'
@@ -37,21 +40,21 @@ export default function Home() {
           variants={floatingAnimation}
           initial="initial"
           animate="animate"
-          transition={{ delay: 0 }}
+          transition={{ duration: 8, repeat: Infinity, ease: 'easeInOut', delay: 0 }}
         />
         <motion.div
           className="absolute bottom-40 right-20 w-48 h-48 rounded-full bg-indigo-300/20 blur-sm"
           variants={floatingAnimation}
           initial="initial"
           animate="animate"
-          transition={{ delay: 1 }}
+          transition={{ duration: 8, repeat: Infinity, ease: 'easeInOut', delay: 1 }}
         />
         <motion.div
           className="absolute top-1/2 left-1/3 w-40 h-40 rounded-full bg-purple-300/20 blur-sm"
           variants={floatingAnimation}
           initial="initial"
           animate="animate"
-          transition={{ delay: 2 }}
+          transition={{ duration: 8, repeat: Infinity, ease: 'easeInOut', delay: 2 }}
         />
         <div className="absolute top-0 left-0 right-0 h-40 bg-gradient-to-b from-sky-100 to-transparent"></div>
         <div className="absolute bottom-0 left-0 right-0 h-40 bg-gradient-to-t from-purple-100 to-transparent"></div>
@@ -83,6 +86,7 @@ export default function Home() {
               <motion.span
                 key={`${char}-${index}`}
                 variants={titleCharacter}
+                transition={titleCharacterTransition}
                 className={char === ' ' ? 'w-4' : ''}
               >
                 {char}
@@ -116,6 +120,7 @@ export default function Home() {
               key={library.name}
               className="group relative flex flex-col items-center p-4 isolate"
               variants={cardVariants}
+              transition={cardTransition}
               whileHover="hover"
               initial="hidden"
               animate="visible"
@@ -134,6 +139,7 @@ export default function Home() {
                 >
                   <motion.div
                     variants={logoVariants}
+                    transition={logoHoverTransition}
                     initial="initial"
                     whileHover="hover"
                   >
