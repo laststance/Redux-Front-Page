@@ -28,9 +28,10 @@ export default function Home() {
         href="https://github.com/laststance/Redux-Front-Page"
         target="_blank"
         rel="noopener noreferrer"
-        className="absolute top-4 right-4 z-50"
+        className="absolute top-4 right-4 z-50 transition-transform hover:scale-110"
+        aria-label="View source code on GitHub"
       >
-        <GitHubIcon width={32} height={32} className="text-gray-700" />
+        <GitHubIcon width={32} height={32} className="text-white drop-shadow-md" />
       </a>
 
       {/* Animated background elements */}
