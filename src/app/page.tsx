@@ -28,7 +28,7 @@ export default function Home() {
         href="https://github.com/laststance/Redux-Front-Page"
         target="_blank"
         rel="noopener noreferrer"
-        className="absolute top-4 right-4 z-50 transition-transform hover:scale-110"
+        className="absolute top-6 right-6 md:top-8 md:right-8 z-50 transition-transform hover:scale-110"
         aria-label="View source code on GitHub"
       >
         <GitHubIcon width={32} height={32} className="text-white drop-shadow-md" />
@@ -62,7 +62,7 @@ export default function Home() {
       </div>
 
       {/* Heading */}
-      <div className="relative z-10 pt-8 text-center">
+      <div className="relative z-10 pt-12 md:pt-16 lg:pt-20 text-center">
         <motion.h1
           className="text-xl text-indigo-500 uppercase tracking-wide"
           initial={{ opacity: 0, y: -20 }}
@@ -75,7 +75,7 @@ export default function Home() {
           initial={{ opacity: 0 }}
           animate={{ opacity: 1 }}
           transition={{ duration: 0.5, delay: 0.3 }}
-          className="mt-6 mb-12"
+          className="mt-8 mb-16 md:mb-20"
         >
           <motion.h2
             className="text-4xl md:text-5xl font-bold text-indigo-700 flex justify-center flex-wrap perspective"
@@ -95,7 +95,7 @@ export default function Home() {
             ))}
           </motion.h2>
           <motion.p
-            className="mt-2 text-gray-600 max-w-lg mx-auto text-sm md:text-base"
+            className="mt-4 md:mt-6 text-gray-600 max-w-lg mx-auto text-sm md:text-base"
             initial={{ opacity: 0, y: 20 }}
             animate={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.8, delay: 1.2 }}
@@ -106,9 +106,9 @@ export default function Home() {
       </div>
 
       {/* Main Content */}
-      <main className="relative z-10 flex flex-col items-center justify-center min-h-[70vh] px-4">
+      <main className="relative z-10 flex flex-col items-center justify-center min-h-[70vh] px-6 sm:px-8 md:px-12 lg:px-16">
         <motion.div
-          className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-8 p-4 sm:p-6 md:p-8 bg-white/80 rounded-xl shadow-lg backdrop-blur-sm w-full max-w-4xl border-2 border-purple-300/50 relative card-container"
+          className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-8 md:gap-10 lg:gap-12 p-6 sm:p-8 md:p-10 lg:p-12 bg-white/80 rounded-xl shadow-lg backdrop-blur-sm w-full max-w-4xl border-2 border-purple-300/50 relative card-container"
           variants={cardContainerVariants}
           initial="hidden"
           animate="visible"
@@ -119,7 +119,7 @@ export default function Home() {
           {reduxLibraries.map((library, index) => (
             <motion.div
               key={library.name}
-              className="group relative flex flex-col items-center p-4 isolate"
+              className="group relative flex flex-col items-center p-4 md:p-6 isolate"
               variants={cardVariants}
               transition={cardTransition}
               whileHover="hover"
@@ -160,7 +160,7 @@ export default function Home() {
 
                 {/* Library name */}
                 <motion.div
-                  className="mt-4 text-center font-medium text-lg"
+                  className="mt-6 md:mt-8 text-center font-medium text-lg"
                   initial={{ opacity: 0 }}
                   animate={{ opacity: 1 }}
                   transition={{ delay: 0.5 + index * 0.2 }}
@@ -211,7 +211,7 @@ export default function Home() {
       </main>
 
       {/* Footer */}
-      <footer className="relative z-10 flex flex-col items-center justify-center py-6 mt-auto">
+      <footer className="relative z-10 flex flex-col items-center justify-center py-10 md:py-16 mt-auto">
         <motion.div
           className="text-center text-gray-600 text-sm"
           initial={{ opacity: 0 }}

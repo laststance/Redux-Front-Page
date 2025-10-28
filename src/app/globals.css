@@ -50,7 +50,7 @@ body {
     top: auto;
     width: 100%;
     max-width: 24rem;
-    transform: translateY(-20px);
+    transform: translateY(-1.5rem); /* -24px aligned with spacing scale */
     transition: opacity 0.2s ease-out, transform 0.3s ease-out;
   }
 
