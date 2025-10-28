@@ -54,7 +54,15 @@ body {
     transition: opacity 0.2s ease-out, transform 0.3s ease-out;
   }
 
+  /* Show tooltip on hover for desktop devices */
   .group:hover .tooltip-container {
+    opacity: 1 !important;
+    transform: translateY(0);
+  }
+
+  /* Show tooltip when explicitly visible (for touch devices) */
+  .tooltip-container.visible,
+  .tooltip-container[data-tooltip-active="true"] {
     opacity: 1 !important;
     transform: translateY(0);
   }

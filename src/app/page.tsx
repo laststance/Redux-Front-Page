@@ -1,28 +1,38 @@
 'use client'
 
 import { motion } from 'framer-motion'
-import Image from 'next/image'
+import { useState, useCallback } from 'react'
 
 import GitHubIcon from './GitHubIcon'
+import { LibraryCard } from './LibraryCard'
 import {
   floatingAnimation,
   titleContainer,
   titleCharacter,
   titleCharacterTransition,
   cardContainerVariants,
-  cardVariants,
-  cardTransition,
-  logoVariants,
-  logoHoverTransition,
-  logoFilters,
   reduxLibraries,
 } from './variables'
 
 export default function Home() {
   const titleText = 'Redux Front Page'
+  const [visibleTooltip, setVisibleTooltip] = useState<number | null>(null)
+
+  // Toggle tooltip visibility for touch devices
+  const handleTooltipToggle = useCallback((index: number) => {
+    setVisibleTooltip((prev) => (prev === index ? null : index))
+  }, [])
+
+  // Close tooltip when clicking/touching outside
+  const handleOutsideTouch = useCallback(() => {
+    setVisibleTooltip(null)
+  }, [])
 
   return (
-    <div className="relative min-h-screen overflow-hidden bg-gradient-to-b from-sky-50 via-indigo-50 to-purple-50">
+    <div
+      className="relative min-h-screen overflow-hidden bg-gradient-to-b from-sky-50 via-indigo-50 to-purple-50"
+      onTouchStart={handleOutsideTouch}
+    >
       {/* GitHub Link */}
       <a
         href="https://github.com/laststance/Redux-Front-Page"
@@ -117,95 +127,13 @@ export default function Home() {
           {/* Gradient border effect */}
           <div className="absolute inset-0 -z-10 bg-gradient-to-r from-sky-400 via-indigo-400 to-purple-400 opacity-20 blur-sm"></div>
           {reduxLibraries.map((library, index) => (
-            <motion.div
+            <LibraryCard
               key={library.name}
-              className="group relative flex flex-col items-center p-4 md:p-6 isolate"
-              variants={cardVariants}
-              transition={cardTransition}
-              whileHover="hover"
-              initial="hidden"
-              animate="visible"
-            >
-              {/* Container with link */}
-              <a
-                href={library.url}
-                target="_blank"
-                rel="noopener noreferrer"
-                className="flex flex-col items-center no-underline relative"
-              >
-                {/* Logo */}
-                <motion.div
-                  className={`w-24 h-24 md:w-32 md:h-32 rounded-full ${library.color} flex items-center justify-center shadow-md relative z-10`}
-                  whileHover={{ scale: 1.05 }}
-                >
-                  <motion.div
-                    variants={logoVariants}
-                    transition={logoHoverTransition}
-                    initial="initial"
-                    whileHover="hover"
-                  >
-                    <Image
-                      src="/redux-logo.svg"
-                      alt={library.name}
-                      width={48}
-                      height={48}
-                      className="w-12 h-12 md:w-16 md:h-16 invert redux-logo-glow"
-                      style={{
-                        filter:
-                          logoFilters[library.name as keyof typeof logoFilters],
-                      }}
-                    />
-                  </motion.div>
-                </motion.div>
-
-                {/* Library name */}
-                <motion.div
-                  className="mt-6 md:mt-8 text-center font-medium text-lg"
-                  initial={{ opacity: 0 }}
-                  animate={{ opacity: 1 }}
-                  transition={{ delay: 0.5 + index * 0.2 }}
-                >
-                  {library.name}
-                </motion.div>
-              </a>
-
-              {/* Tooltip with absolute positioning */}
-              <div className="tooltip-container opacity-0 bottom-[120%]">
-                <div
-                  className={`p-6 rounded-xl shadow-xl mx-auto backdrop-blur-sm ${
-                    library.name === 'Redux'
-                      ? 'bg-sky-100/90 border border-sky-200'
-                      : library.name === 'React Redux'
-                        ? 'bg-indigo-100/90 border border-indigo-200'
-                        : 'bg-purple-100/90 border border-purple-200'
-                  }`}
-                >
-                  <h3
-                    className={`font-bold mb-3 text-xl ${
-                      library.name === 'Redux'
-                        ? 'text-sky-900'
-                        : library.name === 'React Redux'
-                          ? 'text-indigo-900'
-                          : 'text-purple-900'
-                    }`}
-                  >
-                    {library.name}
-                  </h3>
-                  <p className="text-lg text-gray-700 mb-3 text-balance">
-                    {library.description}
-                  </p>
-                </div>
-                <div
-                  className={`w-5 h-5 transform rotate-45 absolute -bottom-2 left-1/2 -ml-2 ${
-                    library.name === 'Redux'
-                      ? 'bg-sky-100/90 border-b border-r border-sky-200'
-                      : library.name === 'React Redux'
-                        ? 'bg-indigo-100/90 border-b border-r border-indigo-200'
-                        : 'bg-purple-100/90 border-b border-r border-purple-200'
-                  }`}
-                ></div>
-              </div>
-            </motion.div>
+              library={library}
+              index={index}
+              visibleTooltip={visibleTooltip}
+              onTooltipToggle={handleTooltipToggle}
+            />
           ))}
         </motion.div>
       </main>
