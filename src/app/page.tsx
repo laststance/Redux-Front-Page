@@ -33,15 +33,15 @@ export default function Home() {
       className="relative min-h-screen overflow-hidden bg-gradient-to-b from-sky-50 via-indigo-50 to-purple-50"
       onTouchStart={handleOutsideTouch}
     >
-      {/* GitHub Link */}
+      {/* GitHub Link - Improved with glassmorphism */}
       <a
         href="https://github.com/laststance/Redux-Front-Page"
         target="_blank"
         rel="noopener noreferrer"
-        className="absolute top-6 right-6 md:top-8 md:right-8 z-50 transition-transform hover:scale-110"
+        className="absolute top-4 right-4 sm:top-5 sm:right-5 md:top-6 md:right-6 lg:top-8 lg:right-8 z-50 p-2 sm:p-2.5 md:p-3 bg-white/20 backdrop-blur-md border border-white/30 rounded-xl shadow-lg hover:shadow-2xl transition-all duration-300 ease-in-out hover:scale-105 hover:-translate-y-1 active:scale-95 group"
         aria-label="View source code on GitHub"
       >
-        <GitHubIcon width={32} height={32} className="text-white drop-shadow-md" />
+        <GitHubIcon width={28} height={28} className="text-indigo-700 drop-shadow-md transition-colors duration-300 group-hover:text-indigo-900" />
       </a>
 
       {/* Animated background elements */}
