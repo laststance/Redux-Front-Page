@@ -82,7 +82,7 @@ export const cardContainerVariants = {
   },
 }
 
-// Individual card animation
+// Individual card animation with refined micro-interactions
 export const cardVariants = {
   hidden: {
     y: 50,
@@ -95,16 +95,18 @@ export const cardVariants = {
     scale: 1,
   },
   hover: {
-    scale: 1.05,
-    zIndex: 40,
-    boxShadow: '0px 10px 25px rgba(0, 0, 0, 0.15)',
+    scale: 1.02,
+    y: -4,
+    transition: {
+      duration: 0.3,
+      ease: [0.4, 0, 0.2, 1], // cubic-bezier for premium feel
+    },
   },
 }
 
 export const cardTransition = {
-  type: 'spring' as const,
-  damping: 15,
-  stiffness: 100,
+  duration: 0.5,
+  ease: [0.4, 0, 0.2, 1], // Smoother easing for initial animation
 }
 
 export const cardHoverTransition = {
@@ -113,20 +115,21 @@ export const cardHoverTransition = {
   stiffness: 250,
 }
 
-// Logo animation
+// Logo animation with refined subtlety
 export const logoVariants = {
   initial: {
     rotate: 0,
     scale: 1,
   },
   hover: {
-    scale: [1, 1.2, 1.15],
-    rotate: [0, 10, -10, 0],
+    scale: [1, 1.08, 1.05],
+    rotate: [0, 5, -5, 0],
   },
 }
 
 export const logoHoverTransition = {
-  duration: 1.5,
+  duration: 2,
+  ease: [0.4, 0, 0.2, 1],
   repeat: Infinity,
   repeatType: 'loop' as const,
 }

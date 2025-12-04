@@ -23,7 +23,7 @@ export function LibraryCard({ library, index, visibleTooltip, onTooltipToggle }:
 
   return (
     <motion.div
-      className="group relative flex flex-col items-center p-4 md:p-6 isolate"
+      className="group relative flex flex-col items-center p-4 md:p-6 isolate rounded-lg transition-shadow duration-300 ease-out hover:shadow-[0_8px_30px_rgba(99,102,241,0.12),0_2px_8px_rgba(99,102,241,0.08)]"
       variants={cardVariants}
       transition={cardTransition}
       whileHover="hover"

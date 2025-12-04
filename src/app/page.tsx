@@ -38,10 +38,10 @@ export default function Home() {
         href="https://github.com/laststance/Redux-Front-Page"
         target="_blank"
         rel="noopener noreferrer"
-        className="absolute top-4 right-4 sm:top-5 sm:right-5 md:top-6 md:right-6 lg:top-8 lg:right-8 z-50 p-2 sm:p-2.5 md:p-3 bg-white/20 backdrop-blur-md border border-white/30 rounded-xl shadow-lg hover:shadow-2xl transition-all duration-300 ease-in-out hover:scale-105 hover:-translate-y-1 active:scale-95 group"
+        className="absolute top-4 right-4 sm:top-5 sm:right-5 md:top-6 md:right-6 lg:top-8 lg:right-8 z-50 p-2 sm:p-2.5 md:p-3 bg-white/20 backdrop-blur-md border border-white/30 rounded-xl shadow-lg hover:shadow-[0_0_20px_rgba(99,102,241,0.3),0_8px_30px_rgba(0,0,0,0.12)] transition-all duration-300 ease-[cubic-bezier(0.4,0,0.2,1)] hover:scale-105 hover:-translate-y-1 active:scale-95 group"
         aria-label="View source code on GitHub"
       >
-        <GitHubIcon width={28} height={28} className="text-indigo-700 drop-shadow-md transition-colors duration-300 group-hover:text-indigo-900" />
+        <GitHubIcon width={28} height={28} className="text-indigo-700 drop-shadow-md transition-all duration-300 group-hover:text-indigo-900 group-hover:drop-shadow-[0_0_8px_rgba(99,102,241,0.5)]" />
       </a>
 
       {/* Animated background elements */}
@@ -74,7 +74,8 @@ export default function Home() {
       {/* Heading */}
       <div className="relative z-10 pt-12 md:pt-16 lg:pt-20 text-center">
         <motion.h1
-          className="text-xl text-indigo-500 uppercase tracking-wide"
+          className="text-xl text-indigo-500 uppercase tracking-[0.15em] font-medium"
+          style={{ textShadow: '0 1px 2px rgba(99, 102, 241, 0.1)' }}
           initial={{ opacity: 0, y: -20 }}
           animate={{ opacity: 1, y: 0 }}
           transition={{ duration: 0.8, ease: 'easeOut' }}
@@ -88,7 +89,8 @@ export default function Home() {
           className="mt-8 mb-16 md:mb-20"
         >
           <motion.h2
-            className="text-4xl md:text-5xl font-bold text-indigo-700 flex justify-center flex-wrap perspective"
+            className="text-4xl md:text-5xl font-bold bg-gradient-to-r from-indigo-600 via-purple-600 to-indigo-600 bg-clip-text text-transparent flex justify-center flex-wrap perspective"
+            style={{ textShadow: '0 2px 4px rgba(99, 102, 241, 0.15)' }}
             variants={titleContainer}
             initial="hidden"
             animate="visible"
@@ -105,7 +107,7 @@ export default function Home() {
             ))}
           </motion.h2>
           <motion.p
-            className="mt-4 md:mt-6 text-gray-600 max-w-lg mx-auto text-sm md:text-base"
+            className="mt-4 md:mt-6 text-gray-600 max-w-lg mx-auto text-sm md:text-base font-light tracking-wide leading-relaxed"
             initial={{ opacity: 0, y: 20 }}
             animate={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.8, delay: 1.2 }}
@@ -118,14 +120,15 @@ export default function Home() {
       {/* Main Content */}
       <main className="relative z-10 flex flex-col items-center justify-center min-h-[70vh] px-6 sm:px-8 md:px-12 lg:px-16">
         <motion.div
-          className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-8 md:gap-10 lg:gap-12 p-6 sm:p-8 md:p-10 lg:p-12 bg-white/80 rounded-xl shadow-lg backdrop-blur-sm w-full max-w-4xl border-2 border-purple-300/50 relative card-container"
+          className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-8 md:gap-10 lg:gap-12 p-8 sm:p-10 md:p-12 lg:p-14 glass-enhanced rounded-2xl backdrop-blur-md w-full max-w-4xl relative card-container"
           variants={cardContainerVariants}
           initial="hidden"
           animate="visible"
           transition={{ duration: 0.5, delay: 0.8 }}
         >
-          {/* Gradient border effect */}
-          <div className="absolute inset-0 -z-10 bg-gradient-to-r from-sky-400 via-indigo-400 to-purple-400 opacity-20 blur-sm"></div>
+          {/* Enhanced gradient border glow */}
+          <div className="absolute inset-0 -z-10 bg-gradient-to-r from-sky-400 via-indigo-400 to-purple-400 opacity-25 blur-md rounded-2xl"></div>
+          <div className="absolute inset-0 -z-10 bg-gradient-to-br from-indigo-200/30 via-purple-200/30 to-pink-200/30 rounded-2xl"></div>
           {reduxLibraries.map((library, index) => (
             <LibraryCard
               key={library.name}
@@ -147,7 +150,11 @@ export default function Home() {
           transition={{ delay: 1.5 }}
         >
           © 2025{' '}
-          <a href="https://laststance.io" target="_blank">
+          <a
+            href="https://laststance.io"
+            target="_blank"
+            className="text-indigo-600 hover:text-indigo-700 transition-all duration-300 hover:underline decoration-2 underline-offset-4 hover:drop-shadow-[0_0_4px_rgba(99,102,241,0.3)]"
+          >
             laststance.io
           </a>
         </motion.div>
