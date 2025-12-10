@@ -99,14 +99,14 @@ export const cardVariants = {
     y: -4,
     transition: {
       duration: 0.3,
-      ease: [0.4, 0, 0.2, 1], // cubic-bezier for premium feel
+      ease: [0.4, 0, 0.2, 1] as const, // cubic-bezier for premium feel
     },
   },
 }
 
 export const cardTransition = {
   duration: 0.5,
-  ease: [0.4, 0, 0.2, 1], // Smoother easing for initial animation
+  ease: [0.4, 0, 0.2, 1] as const, // Smoother easing for initial animation
 }
 
 export const cardHoverTransition = {
@@ -129,7 +129,7 @@ export const logoVariants = {
 
 export const logoHoverTransition = {
   duration: 2,
-  ease: [0.4, 0, 0.2, 1],
+  ease: [0.4, 0, 0.2, 1] as const,
   repeat: Infinity,
   repeatType: 'loop' as const,
 }
